@@ -40,23 +40,27 @@
       "dataCadastro": "02/30/1980"
     },
     {
+      "nome": "Spider Man",
+      "poder": {
+        "nome": "Instinto aranha"
+      },
+      "universo": {
+        "id": 3,
+        "nome": "Outros"
+      },
       "id": 4
     },
     {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "nome": "Kotlin",
+      "nome": "Pantera Negra",
       "poder": {
-        "nome": "android"
+        "id": 3,
+        "nome": "Super Forca"
       },
       "universo": {
-        "nome": null
+        "id": 2,
+        "nome": "Trainee Comics"
       },
-      "id": 7
+      "id": 5
     }
   ],
   "universos": [
