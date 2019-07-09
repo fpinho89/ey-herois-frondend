@@ -1,0 +1,90 @@
+{
+  "herois": [
+    {
+      "id": 1,
+      "nome": "Flash",
+      "poder": {
+        "id": 1,
+        "nome": "Super Velocidade"
+      },
+      "universo": {
+        "id": 1,
+        "nome": "EY Comics"
+      },
+      "dataCadastro": "01/01/2000"
+    },
+    {
+      "id": 2,
+      "nome": "Thor",
+      "poder": {
+        "id": 2,
+        "nome": "Deus do trovão"
+      },
+      "universo": {
+        "id": 2,
+        "nome": "Trainee Comics"
+      },
+      "dataCadastro": "10/15/1990"
+    },
+    {
+      "id": 3,
+      "nome": "Superman",
+      "poder": {
+        "id": 3,
+        "nome": "Super Força"
+      },
+      "universo": {
+        "id": 3,
+        "nome": "Outros"
+      },
+      "dataCadastro": "02/30/1980"
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "nome": "Kotlin",
+      "poder": {
+        "nome": "android"
+      },
+      "universo": {
+        "nome": null
+      },
+      "id": 7
+    }
+  ],
+  "universos": [
+    {
+      "id": 1,
+      "nome": "EY Comics"
+    },
+    {
+      "id": 2,
+      "nome": "Trainee Comics"
+    },
+    {
+      "id": 3,
+      "nome": "Outros"
+    }
+  ],
+  "poderes": [
+    {
+      "id": 1,
+      "nome": "Super Velocidade"
+    },
+    {
+      "id": 2,
+      "nome": "Deus do Trovao"
+    },
+    {
+      "id": 3,
+      "nome": "Super Forca"
+    }
+  ]
+}
