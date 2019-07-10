@@ -17,15 +17,10 @@ export class HeroiService {
   }
 
   add(heroi:  Heroi) {
-    console.log(heroi);
-    this.http.post<Heroi>(this.API, heroi);
+    return this.http.post<Heroi>(this.API, heroi).pipe(take(1))
   }
 
   delete(id:number) {
-    this.http.delete<Heroi>(this.API+"/"+id)
-    .subscribe(dados => {
-      console.log(dados);
-    },
-    (error: any) => alert('erro'));
+    return this.http.delete<Heroi>(this.API+"/"+id).pipe(take(1));
   }
 }

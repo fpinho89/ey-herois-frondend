@@ -1,7 +1,7 @@
 import { AlertModalService } from './../../shared/alert-modal.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable} from 'rxjs';
-import { catchError} from 'rxjs/operators';
+import { catchError, take, switchMap} from 'rxjs/operators';
 
 import { HeroiService } from './../heroi.service';
 import { Heroi } from '../heroi.model';
@@ -20,8 +20,13 @@ export class HeroiListaComponent implements OnInit {
       private alertService :  AlertModalService) { }
 
   ngOnInit() {
+
+    this.onRefresh();
+    
+  }
+
+  onRefresh() {
     this.herois = this.heroiService.lista().pipe(
-      
       catchError(error => {
         console.error(error);
         this.handleError();
@@ -30,8 +35,21 @@ export class HeroiListaComponent implements OnInit {
     );
   }
 
-  delete(id: number) {
-    this.heroiService.delete(id);
+  onDelete(heroi: Heroi) {
+    const result$ = this.alertService.showConfirm('Confirmacao', 'Tem certeza que deseja remover esse herói?');
+    result$.asObservable()
+    .pipe(
+      take(1),
+      switchMap(result => result ? this.heroiService.delete(heroi.id) : empty())
+    )
+    .subscribe(
+      success => {
+        this.onRefresh();
+      },
+      error => {
+        this.alertService.showAlertDanger('Erro ao remover o heroi. Tente novamente mais tarde.');
+      }
+    );
   }
 
   handleError() {

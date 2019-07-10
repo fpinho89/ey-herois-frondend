@@ -15,7 +15,7 @@
     </td>
     <td>{{ heroi.universo.nome }}</td>
     <td>{{ heroi.dataCadastro | date : 'dd/MM/yyyy' }}</td>
-    <td><a (click)="delete(heroi.id)"><span class="glyphicon glyphicon-trash"></span></a></td>
+    <td><a (click)="onDelete(heroi)"><span class="glyphicon glyphicon-trash"></span></a></td>
   </tr>
 </table>
 <a [routerLink]="['/novo']" class="btn btn-primary btn-block">Novo Heroi</a>
