@@ -7,9 +7,14 @@
   </div>
   <div class="form-group">
     <label for="poder">Poder:</label>
-    <select multiple class="form-control" id="poder" formControlName="poderes" placeholder="Poder">
-      <option *ngFor="let p of poderes | async" [ngValue]="p">{{ p.nome }}</option>
-    </select>
+    <ng-multiselect-dropdown
+            name="city"
+            [placeholder]="'Poder(es)'"
+            [data]="lista"
+            formControlName="poderes"            
+            [settings]="dropdownSettings"
+            [ngClass]="aplicaCssErro('poderes')">
+        </ng-multiselect-dropdown>
     <app-campo-control-erro [mostrarErro]="verificaValidTouched('poderes')" msgErro="Poder é obrigatório">
       </app-campo-control-erro>
   </div>

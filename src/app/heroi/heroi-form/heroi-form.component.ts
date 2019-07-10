@@ -23,6 +23,16 @@ export class HeroiFormComponent implements OnInit {
 
   universos: Observable<Universo[]>;
   poderes: Observable<Poder[]>;
+  lista: Poder[];
+
+  dropdownSettings = {
+    singleSelection: false,
+    idField: 'id',
+    textField: 'nome',
+    selectAllText: 'Selecionar todos',
+    unSelectAllText: 'Selecionar todos',
+    itemsShowLimit: 30
+};
 
   constructor(private formBuilder: FormBuilder,
       private heroiService: HeroiService,
@@ -35,7 +45,9 @@ export class HeroiFormComponent implements OnInit {
   ngOnInit() {
 
     this.universos = this.universoService.lista();
-    this.poderes = this.poderService.lista();
+    this.poderService.lista().subscribe(
+      poderes => this.lista = poderes
+    );
 
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
@@ -45,7 +57,6 @@ export class HeroiFormComponent implements OnInit {
   }
 
   onSubmit() {
-
     if (this.formulario.valid) {
      
       let msgSuccess = 'Heroi criado com sucesso!';

@@ -11,7 +11,7 @@ export class AlertConfirmComponent implements OnInit {
 
   @Input() title: string;
   @Input() msg: string;
-  @Input() cancelTxt = 'Cancelar';
+  @Input() cancelTxt = 'Não';
   @Input() okTxt = 'Sim';
 
   confirmResult: Subject<boolean>;

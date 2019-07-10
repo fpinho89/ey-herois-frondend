@@ -1,3 +1,4 @@
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +21,8 @@ import { SharedModule } from '../shared/shared.module';
     AppRoutingModule,
     UniversoModule,
     PoderModule,
-    SharedModule
+    SharedModule,
+    NgMultiSelectDropDownModule
   ],
   declarations: [HeroiListaComponent, HeroiFormComponent],
   exports: [HeroiListaComponent],
