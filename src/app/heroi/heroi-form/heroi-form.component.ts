@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -38,9 +38,9 @@ export class HeroiFormComponent implements OnInit {
     this.poderes = this.poderService.lista();
 
     this.formulario = this.formBuilder.group({
-      nome: [null],
-      poderes: [null],
-      universo: [null]
+      nome: [null, Validators.required],
+      poderes: [null, Validators.required],
+      universo: [null, Validators.required]
     });
   }
 
@@ -57,8 +57,18 @@ export class HeroiFormComponent implements OnInit {
             this.location.back();
         },
         error => this.modal.showAlertDanger(msgError)
-      );
-      
+      );      
+    }
+  }
+
+  verificaValidTouched(campo){
+    return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;  
+  }
+
+  aplicaCssErro(campo) {
+    return {
+      'has-error': this.verificaValidTouched(campo),
+      'has-feedback': this.verificaValidTouched(campo)
     }
   }
 }

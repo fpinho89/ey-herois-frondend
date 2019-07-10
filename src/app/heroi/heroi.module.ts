@@ -9,6 +9,7 @@ import { HeroiFormComponent } from './heroi-form/heroi-form.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { UniversoModule } from './../universo/universo.module';
 import { PoderModule } from './../poder/poder.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { PoderModule } from './../poder/poder.module';
     FormsModule,
     AppRoutingModule,
     UniversoModule,
-    PoderModule
+    PoderModule,
+    SharedModule
   ],
   declarations: [HeroiListaComponent, HeroiFormComponent],
   exports: [HeroiListaComponent],
