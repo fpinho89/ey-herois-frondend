@@ -7,7 +7,7 @@
     <th></th>
   </tr>
   <tr *ngFor="let heroi of herois | async">
-    <td>{{ heroi.nome }}</td>
+    <td><span class="glyphicon glyphicon-user"></span> {{ heroi.nome }}</td>
     <td>
         <span *ngFor="let p of heroi.poderes">
           +{{ p.nome }} 
