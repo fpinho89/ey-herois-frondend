@@ -5,7 +5,7 @@
   </div>
   <div class="form-group">
     <label for="poder">Poder:</label>
-    <select class="form-control" id="poder" formControlName="poder" placeholder="Poder">
+    <select multiple class="form-control" id="poder" formControlName="poderes" placeholder="Poder">
       <option *ngFor="let p of poderes | async" [ngValue]="p">{{ p.nome }}</option>
     </select>
   </div>

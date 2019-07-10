@@ -7,6 +7,7 @@ import { HeroiFormComponent } from './heroi/heroi-form/heroi-form.component';
 
 const routes: Routes = [
   {path: "", component: HeroiListaComponent},
+  {path: "herois", component: HeroiListaComponent},
   {path: "novo", component: HeroiFormComponent}
 ];
 

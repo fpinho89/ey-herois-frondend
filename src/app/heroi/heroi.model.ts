@@ -1,10 +1,11 @@
+import { Poder } from './../poder/poder.model';
 import { Universo } from './../universo/universo.model';
 
 export class Heroi {
 
     id:number;
     nome:string;
-    poder:string;
+    poderes:Poder[];
     universo:Universo;
     dataCadastro:string;
 

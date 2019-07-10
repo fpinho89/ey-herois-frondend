@@ -6,7 +6,7 @@ import { Poder } from './poder.model';
 @Injectable()
 export class PoderService {
 
-  private readonly API = "http://localhost:3000/poderes";
+  private readonly API = "http://localhost:8080/poderes";
 
   constructor(private http : HttpClient) { }
 

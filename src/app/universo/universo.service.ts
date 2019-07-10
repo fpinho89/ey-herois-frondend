@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UniversoService {
 
-  private readonly API = "http://localhost:3000/universos";
+  private readonly API = "http://localhost:8080/universos";
 
   constructor(private http: HttpClient) { }
 

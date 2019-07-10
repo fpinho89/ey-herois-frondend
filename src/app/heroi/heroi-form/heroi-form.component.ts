@@ -1,7 +1,8 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
-
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { Heroi } from '../heroi.model';
 import { HeroiService } from './../heroi.service';
 import { Universo } from './../../universo/universo.model';
@@ -24,7 +25,8 @@ export class HeroiFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
       private heroiService: HeroiService,
       private universoService: UniversoService,
-      private poderService: PoderService) { }
+      private poderService: PoderService,
+      private router: Router) { }
 
   ngOnInit() {
 
@@ -33,7 +35,7 @@ export class HeroiFormComponent implements OnInit {
 
     this.formulario = this.formBuilder.group({
       nome: [null],
-      poder: [null],
+      poderes: [null],
       universo: [null]
     });
   }
@@ -41,5 +43,6 @@ export class HeroiFormComponent implements OnInit {
   onSubmit() {
     //console.log(new Heroi(this.formulario.value));
     this.heroiService.add(new Heroi(this.formulario.value));
+    this.router.navigate(["/herois"]);
   }
 }

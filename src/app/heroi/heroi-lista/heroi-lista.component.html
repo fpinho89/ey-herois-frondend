@@ -4,12 +4,18 @@
     <th>Poder</th>
     <th>Universo</th>
     <th>Data Cadastro</th>
+    <th></th>
   </tr>
   <tr *ngFor="let heroi of herois | async">
     <td>{{ heroi.nome }}</td>
-    <td>{{ heroi.poder.nome }}</td>
+    <td>
+        <span *ngFor="let p of heroi.poderes">
+          +{{ p.nome }} 
+        </span>
+    </td>
     <td>{{ heroi.universo.nome }}</td>
     <td>{{ heroi.dataCadastro | date : 'dd/MM/yyyy' }}</td>
+    <td><a (click)="delete(heroi.id)"><span class="glyphicon glyphicon-trash"></span></a></td>
   </tr>
 </table>
 <a [routerLink]="['/novo']" class="btn btn-primary btn-block">Novo Heroi</a>
