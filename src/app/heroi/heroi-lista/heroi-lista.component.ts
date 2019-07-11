@@ -22,7 +22,6 @@ export class HeroiListaComponent implements OnInit {
   ngOnInit() {
 
     this.onRefresh();
-    
   }
 
   onRefresh() {

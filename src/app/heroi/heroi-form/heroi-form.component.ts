@@ -11,6 +11,7 @@ import { UniversoService } from './../../universo/universo.service';
 import { Poder } from '../../poder/poder.model';
 import { PoderService } from './../../poder/poder.service';
 import { AlertModalService } from '../../shared/alert-modal.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-heroi-form',
@@ -23,7 +24,6 @@ export class HeroiFormComponent implements OnInit {
 
   universos: Observable<Universo[]>;
   poderes: Observable<Poder[]>;
-  lista: Poder[];
 
   dropdownSettings = {
     singleSelection: false,
@@ -45,9 +45,7 @@ export class HeroiFormComponent implements OnInit {
   ngOnInit() {
 
     this.universos = this.universoService.lista();
-    this.poderService.lista().subscribe(
-      poderes => this.lista = poderes
-    );
+    this.poderes = this.poderService.lista();
 
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
@@ -62,10 +60,13 @@ export class HeroiFormComponent implements OnInit {
       let msgSuccess = 'Heroi criado com sucesso!';
       let msgError = 'Erro ao criar heroi, tente novamente!';
 
-      this.heroiService.add(this.formulario.value).subscribe(
+      this.heroiService.add(this.formulario.value).pipe(
+        take(1)
+      )
+      .subscribe(
         success => {
           this.modal.showAlertSuccess(msgSuccess);
-            this.location.back();
+          this.location.back();
         },
         error => this.modal.showAlertDanger(msgError)
       );      

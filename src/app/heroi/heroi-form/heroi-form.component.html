@@ -10,7 +10,7 @@
     <ng-multiselect-dropdown
             name="city"
             [placeholder]="'Poder(es)'"
-            [data]="lista"
+            [data]="poderes | async"
             formControlName="poderes"            
             [settings]="dropdownSettings"
             [ngClass]="aplicaCssErro('poderes')">
