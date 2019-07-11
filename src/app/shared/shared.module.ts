@@ -6,6 +6,7 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
 import { AlertConfirmComponent } from './alert-confirm/alert-confirm.component';
 import { AlertModalService } from './alert-modal.service';
 import { CampoControlErroComponent } from './campo-control-erro/campo-control-erro.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -13,9 +14,9 @@ import { CampoControlErroComponent } from './campo-control-erro/campo-control-er
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [AlertModalComponent, AlertConfirmComponent, CampoControlErroComponent],
+  declarations: [AlertModalComponent, AlertConfirmComponent, CampoControlErroComponent, NotFoundComponent],
   exports: [AlertModalComponent, AlertConfirmComponent, CampoControlErroComponent],
-  entryComponents: [AlertModalComponent, AlertConfirmComponent],
+  entryComponents: [AlertModalComponent, AlertConfirmComponent, NotFoundComponent],
   providers: [AlertModalService]
 })
 export class SharedModule { }

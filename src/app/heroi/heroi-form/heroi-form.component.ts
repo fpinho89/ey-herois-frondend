@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Heroi } from '../heroi.model';
@@ -40,7 +40,8 @@ export class HeroiFormComponent implements OnInit {
       private poderService: PoderService,
       private modal: AlertModalService,
       private location: Location,
-      private route: ActivatedRoute) { }
+      private route: ActivatedRoute,
+      private router: Router) { }
 
   ngOnInit() {
 
@@ -66,7 +67,7 @@ export class HeroiFormComponent implements OnInit {
       .subscribe(
         success => {
           this.modal.showAlertSuccess(msgSuccess);
-          this.location.back();
+          this.router.navigate(['/herois']);
         },
         error => this.modal.showAlertDanger(msgError)
       );      
