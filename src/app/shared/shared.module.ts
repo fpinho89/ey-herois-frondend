@@ -15,8 +15,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ReactiveFormsModule
   ],
   declarations: [AlertModalComponent, AlertConfirmComponent, CampoControlErroComponent, NotFoundComponent],
-  exports: [AlertModalComponent, AlertConfirmComponent, CampoControlErroComponent],
-  entryComponents: [AlertModalComponent, AlertConfirmComponent, NotFoundComponent],
+  exports: [AlertModalComponent, AlertConfirmComponent, CampoControlErroComponent, NotFoundComponent],
+  entryComponents: [AlertModalComponent, AlertConfirmComponent],
   providers: [AlertModalService]
 })
 export class SharedModule { }
