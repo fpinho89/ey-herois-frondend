@@ -1,4 +1,5 @@
-<table class="table table-striped">
+<div *ngIf="herois | async as lista">
+<table class="table table-striped" *ngIf="lista.length else listaVazia">
   <tr>
     <th>Nome</th>
     <th>Poder</th>
@@ -6,7 +7,7 @@
     <th>Data Cadastro</th>
     <th></th>
   </tr>
-  <tr *ngFor="let heroi of herois | async">
+  <tr *ngFor="let heroi of lista">
     <td><span class="glyphicon glyphicon-user"></span> {{ heroi.nome }}</td>
     <td>
         <span *ngFor="let p of heroi.poderes">
@@ -21,4 +22,11 @@
     </td>
   </tr>
 </table>
+</div>
+<ng-template #listaVazia>
+  <div class="text-center">
+    <h4>Não existem heróis cadastrados.</h4>
+  </div>
+</ng-template>
+
 <a [routerLink]="['/novo']" class="btn btn-primary btn-block">Novo Heroi</a>
